@@ -2,9 +2,6 @@ package jefXif;
 
 import java.io.IOException;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -12,7 +9,7 @@ import javafx.stage.Stage;
  * @author Real Standard Studios - Matthew Meehan
  *
  */
-public abstract class Gui{
+public abstract class Gui implements LoadablePartials{
 	public static String FileLoc = "../view/partials/";
 	private Stage primaryStage;
 	private BorderPane rootLayout;
@@ -28,15 +25,6 @@ public abstract class Gui{
 	public abstract void initRootLayout();
 	
 	public abstract void loadPartials() throws IOException;
-	
-	public Node loadPartial(String name) throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(this.getClass().getResource(
-				FileLoc + name + "Partial.fxml"));
-		
-		AnchorPane partial = loader.load();
-		return partial;
-	}
 
 	public Stage getPrimaryStage() {
 		return primaryStage;

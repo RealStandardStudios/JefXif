@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
  *
  */
 public abstract class WindowController {
-	private Gui ui;
+	//private LoadablePartials ui;
 	
 	/**
 	 * Initializes the controller class. This method is automatically called
@@ -16,7 +16,7 @@ public abstract class WindowController {
 	@FXML
 	public abstract void initialize();
 	
-	public void setInterface(Gui ui) {
-		this.ui = ui;
-	}
+//	public void setInterface(LoadablePartials ui) {
+//		this.ui = ui;
+//	}
 }
