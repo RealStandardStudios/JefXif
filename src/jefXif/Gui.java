@@ -9,7 +9,7 @@ import javafx.stage.Stage;
  * @author Real Standard Studios - Matthew Meehan
  *
  */
-public abstract class Gui implements LoadablePartials{
+public abstract class Gui implements PartialLoader{
 	public static String FileLoc = "../view/partials/";
 	private Stage primaryStage;
 	private BorderPane rootLayout;
@@ -25,6 +25,8 @@ public abstract class Gui implements LoadablePartials{
 	public abstract void initRootLayout();
 	
 	public abstract void loadPartials() throws IOException;
+	
+	public abstract void loadData();
 
 	public Stage getPrimaryStage() {
 		return primaryStage;
