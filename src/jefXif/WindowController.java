@@ -4,8 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 
 /**
+ * A base class for WindowController
+ * 
  * @author Real Standard Studios - Matthew Meehan
- *
  */
 public abstract class WindowController {
 	private Gui ui;
@@ -18,10 +19,20 @@ public abstract class WindowController {
 	@FXML
 	public abstract void initialize();
 	
+	/**
+	 * set method for Gui
+	 * 
+	 * @param ui
+	 */
 	public void setInterface(Gui ui) {
 		this.ui = ui;
 	}
 	
+	/**
+	 * Get method for GUI
+	 * 
+	 * @returns a GUI
+	 */
 	public Gui getInterface() {
 		return this.ui;
 	}

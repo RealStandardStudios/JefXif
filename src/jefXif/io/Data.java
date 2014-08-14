@@ -12,12 +12,21 @@ import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
 
 /**
- * @author Real Standard Studios - Matthew Meehan
  * A static Class that reads and writes other objects
+ * 
+ * @author Real Standard Studios - Matthew Meehan
  */
 public class Data {
 	private static final Kryo kryo = new Kryo();
 
+	/**
+	 * universal class to write datd
+	 * 
+	 * @param filePath
+	 * @param data
+	 * @return true if worked, otherwise throws exception
+	 * @throws IOException
+	 */
 	public static boolean Write(String filePath, Object data)
 			throws IOException {
 		Output output;
@@ -32,6 +41,14 @@ public class Data {
 		return result;
 	}
 
+	/**
+	 * takes a class and reads in data and tries to return it as a class
+	 * 
+	 * @param filePath
+	 * @param Class
+	 * @return the result of the class in T
+	 * @throws IOException
+	 */
 	public static <T> T Read(String filePath, Class<T> Class)
 			throws IOException {
 		T result;
