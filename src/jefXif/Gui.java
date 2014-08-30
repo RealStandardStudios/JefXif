@@ -1,6 +1,8 @@
 package jefXif;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.prefs.Preferences;
 
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -12,6 +14,7 @@ import javafx.stage.Stage;
  */
 public abstract class Gui implements PartialLoader{
 	public static String FileLoc = "../view/partials/";
+	public static String DataFileLoc = "\\PathfinderData\\Data\\";
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 	
@@ -82,5 +85,23 @@ public abstract class Gui implements PartialLoader{
 		this.rootLayout = rootLayout;
 	}
 	
+	public File getProgramFilePath() {
+	    Preferences prefs = Preferences.userNodeForPackage(this.getClass());
+	    String filePath = prefs.get("filePath", null);
+	    if (filePath != null) {
+	        return new File(filePath);
+	    } else {
+	        return null;
+	    }
+	}
+	
+	public void setProgramFilePath(File file) {
+	    Preferences prefs = Preferences.userNodeForPackage(this.getClass());
+	    if (file != null) {
+	        prefs.put("filePath", file.getPath());
+	    } else {
+	        prefs.remove("filePath");
+	    }
+	}
 	
 }

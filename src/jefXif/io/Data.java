@@ -20,7 +20,7 @@ public class Data {
 	private static final Kryo kryo = new Kryo();
 
 	/**
-	 * universal class to write datd
+	 * universal class to write data
 	 * 
 	 * @param filePath
 	 * @param data
