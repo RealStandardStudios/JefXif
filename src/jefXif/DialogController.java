@@ -3,6 +3,8 @@
  */
 package jefXif;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 /**
@@ -11,7 +13,7 @@ import javafx.stage.Stage;
  * @author Real Standard Studios - Matthew Meehan
  */
 public abstract class DialogController extends WindowController {
-	
+	public boolean okayClicked = false;
 	private Stage dialogStage;
 	
 	/*
@@ -36,6 +38,18 @@ public abstract class DialogController extends WindowController {
 	public void initialize() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	@FXML
+	public void handleCancel(ActionEvent event) {
+		this.dialogStage.close();
+	}
+	
+	@FXML
+	public abstract void handleOkay(ActionEvent event);
+	
+	public boolean isOkayClicked() {
+		return this.okayClicked;
 	}
 
 }
