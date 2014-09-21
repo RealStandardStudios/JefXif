@@ -5,11 +5,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javafx.beans.property.SimpleStringProperty;
+import jefXif.io.serializers.ObservableListSerializer;
 import jefXif.io.serializers.StringPropertySerializer;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
+import com.sun.javafx.collections.ObservableListWrapper;
 
 /**
  * A static Class that reads and writes other objects
@@ -33,6 +35,7 @@ public class Data {
 		boolean result = true;
 		
 		kryo.register(SimpleStringProperty.class, new StringPropertySerializer());
+		kryo.register(ObservableListWrapper.class, new ObservableListSerializer());
 
 		output = new Output(new FileOutputStream(filePath));
 		kryo.writeObject(output, data);
