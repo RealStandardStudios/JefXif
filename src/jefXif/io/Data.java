@@ -3,10 +3,14 @@ package jefXif.io;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ConcurrentModificationException;
+import java.util.concurrent.TimeUnit;
 
 import javafx.beans.property.SimpleStringProperty;
-import jefXif.io.serializers.ObservableListSerializer;
+import jefXif.io.serializers.ObservableListWrapperSerializer;
 import jefXif.io.serializers.StringPropertySerializer;
+
+import org.controlsfx.dialog.Dialogs;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
@@ -35,10 +39,10 @@ public class Data {
 		boolean result = true;
 		
 		kryo.register(SimpleStringProperty.class, new StringPropertySerializer());
-		kryo.register(ObservableListWrapper.class, new ObservableListSerializer());
+		kryo.register(ObservableListWrapper.class, new ObservableListWrapperSerializer());
 
 		output = new Output(new FileOutputStream(filePath));
-		kryo.writeObject(output, data);
+		writeObject(kryo, output, data);
 		if (output != null)
 			output.close();
 		return result;
@@ -57,10 +61,25 @@ public class Data {
 		T result;
 		
 		kryo.register(SimpleStringProperty.class, new StringPropertySerializer());
+		kryo.register(ObservableListWrapper.class, new ObservableListWrapperSerializer());
 		
 		Input input = new Input(new FileInputStream(filePath));
 		result = kryo.readObject(input, Class);
 		input.close();
 		return result;
+	}
+	
+	private static void writeObject(Kryo kryo, Output output, Object data) {
+		try {
+			kryo.writeObject(output, data);
+		} catch (ConcurrentModificationException e) {
+			try {
+				TimeUnit.SECONDS.sleep(1);
+				writeObject(kryo, output, data);
+			} catch (InterruptedException e1) {
+				Dialogs.create().title("ERROR").masthead("Dangerous coding has produced an error").message(e.getMessage()).showWarning();
+				e1.printStackTrace();
+			}
+		}
 	}
 }
