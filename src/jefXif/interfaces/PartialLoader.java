@@ -1,9 +1,12 @@
-package jefXif;
+package jefXif.interfaces;
 
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import jefXif.Gui;
+import jefXif.Strings;
+import jefXif.WindowController;
 
 /**
  * Provides the ability to perform partial loads

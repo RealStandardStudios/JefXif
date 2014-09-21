@@ -1,4 +1,4 @@
-package jefXif;
+package jefXif.interfaces;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +17,6 @@ public interface DataFileReader {
 	@SuppressWarnings("unchecked")
 	public default <T> ArrayList<T> readDataFile(File file,  java.lang.Class<T> dataClass)
 			throws IOException {
-		System.out.println("Got HERE!");
 		ArrayList<T> arrayList = new ArrayList<T>();
 		Object[] readItems = Data.Read(file.getPath(), Object[].class);
 		for (Object object : readItems) {

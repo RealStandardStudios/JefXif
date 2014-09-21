@@ -6,6 +6,7 @@ import java.util.prefs.Preferences;
 
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import jefXif.interfaces.PartialLoader;
 
 /**
  * A base class for the GUI

@@ -3,6 +3,8 @@ package jefXif;
 import java.io.File;
 import java.io.IOException;
 
+import jefXif.interfaces.DataFileReader;
+
 public abstract class MainPartialController extends WindowController implements DataFileReader{
 
 	public final String pathfinderDataLoc = "\\..\\..\\..\\..\\PathfinderData\\Data";
