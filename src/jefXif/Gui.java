@@ -39,7 +39,7 @@ public abstract class Gui implements PartialLoader{
 	public abstract void initRootLayout();
 	
 	/**
-	 * loadPartials method for Gui
+	 * loadPartials method for GUI
 	 * 
 	 * @throws IOException
 	 */
@@ -86,6 +86,11 @@ public abstract class Gui implements PartialLoader{
 		this.rootLayout = rootLayout;
 	}
 	
+	/**
+	 * getProgramFilePath method for the GUI
+	 * 
+	 * @returns either a filePath or null
+	 */
 	public File getProgramFilePath() {
 	    Preferences prefs = Preferences.userNodeForPackage(this.getClass());
 	    String filePath = prefs.get("filePath", null);
@@ -96,6 +101,11 @@ public abstract class Gui implements PartialLoader{
 	    }
 	}
 	
+	/**
+	 * setProgramFilePath method for GUI
+	 * 
+	 * @param file - a File
+	 */
 	public void setProgramFilePath(File file) {
 	    Preferences prefs = Preferences.userNodeForPackage(this.getClass());
 	    if (file != null) {

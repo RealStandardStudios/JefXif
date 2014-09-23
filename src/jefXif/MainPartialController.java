@@ -5,13 +5,17 @@ import java.io.IOException;
 
 import jefXif.interfaces.DataFileReader;
 
+/**
+ * The base MainPartialController class
+ * 
+ * @author Real Standard Studios - Matthew Meehan
+ */
 public abstract class MainPartialController extends WindowController implements DataFileReader{
 
 	public final String pathfinderDataLoc = "\\..\\..\\..\\..\\PathfinderData\\Data";
 	
 	/**
-	 * Saves the data into the file through kryo or whatever
-	 * is the current save method
+	 * Saves the data into the file through kryo
 	 * @param file The root path to where the files will be saved 
 	 * E.g. C:/Program Files/RpgApp/Data/ 
 	 */

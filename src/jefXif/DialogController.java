@@ -16,7 +16,7 @@ public abstract class DialogController extends WindowController {
 	public boolean okayClicked = false;
 	private Stage dialogStage;
 	
-	/*
+	/**
 	 * Sets the dialogStage
 	 */
 	public void setDialogStage(Stage dialogStage) {
@@ -32,7 +32,7 @@ public abstract class DialogController extends WindowController {
 	}
 	
 	/**
-	 * initialiser for DialogController
+	 * Initialiser for DialogController
 	 */
 	@Override
 	public void initialize() {
@@ -40,11 +40,19 @@ public abstract class DialogController extends WindowController {
 
 	}
 	
+	/**
+	 * A method linked to an FXML element to handle cancel button
+	 * @param event
+	 */
 	@FXML
 	public void handleCancel(ActionEvent event) {
 		this.dialogStage.close();
 	}
 	
+	/**
+	 * A method linked to an FXML element to handle cancel button
+	 * @param event
+	 */
 	@FXML
 	public abstract void handleOkay(ActionEvent event);
 	
