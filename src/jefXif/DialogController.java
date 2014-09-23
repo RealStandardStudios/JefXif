@@ -32,7 +32,7 @@ public abstract class DialogController extends WindowController {
 	}
 	
 	/**
-	 * initialiser for DialogController
+	 * Initializer for DialogController
 	 */
 	@Override
 	public void initialize() {
