@@ -69,6 +69,13 @@ public class Data {
 		return result;
 	}
 	
+	/**
+	 * A method to slow down the writing process
+	 * 
+	 * @param kryo
+	 * @param output
+	 * @param data
+	 */
 	private static void writeObject(Kryo kryo, Output output, Object data) {
 		try {
 			kryo.writeObject(output, data);

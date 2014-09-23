@@ -6,7 +6,13 @@ import java.util.ArrayList;
 
 import jefXif.io.Data;
 
+/**
+ * An interface to allow reading of Kryo files
+ * 
+ * @author Real Standard Studios - Matthew Meehan
+ */
 public interface DataFileReader {
+	
 	/**
 	 * Reads the data from the specified file and returns an ArrayList of the specified class from it
 	 * @param file The file to read the data from
