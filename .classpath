@@ -6,7 +6,7 @@
 	<classpathentry kind="lib" path="lib/minlog-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/objenesis-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/reflectasm-1.09-shaded.jar"/>
-	<classpathentry kind="lib" path="lib/controlsfx-8.0.6_20.jar"/>
 	<classpathentry kind="lib" path="lib/kryo-2.24.0.jar"/>
+	<classpathentry kind="lib" path="lib/controlsfx.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
