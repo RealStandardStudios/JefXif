@@ -6,13 +6,16 @@ import java.io.IOException;
 import java.util.ConcurrentModificationException;
 import java.util.concurrent.TimeUnit;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import jefXif.io.serializers.ObjectPropertySerializer;
 import jefXif.io.serializers.ObservableListWrapperSerializer;
 import jefXif.io.serializers.StringPropertySerializer;
 
 import org.controlsfx.dialog.Dialogs;
 
 import com.esotericsoftware.kryo.Kryo;
+import com.esotericsoftware.kryo.KryoException;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
 import com.sun.javafx.collections.ObservableListWrapper;
@@ -40,6 +43,7 @@ public class Data {
 		
 		kryo.register(SimpleStringProperty.class, new StringPropertySerializer());
 		kryo.register(ObservableListWrapper.class, new ObservableListWrapperSerializer());
+		kryo.register(new SimpleObjectProperty<Object>().getClass(), new ObjectPropertySerializer());
 
 		output = new Output(new FileOutputStream(filePath));
 		writeObject(kryo, output, data);
@@ -62,6 +66,7 @@ public class Data {
 		
 		kryo.register(SimpleStringProperty.class, new StringPropertySerializer());
 		kryo.register(ObservableListWrapper.class, new ObservableListWrapperSerializer());
+		kryo.register(new SimpleObjectProperty<Object>().getClass(), new ObjectPropertySerializer());
 		
 		Input input = new Input(new FileInputStream(filePath));
 		result = kryo.readObject(input, Class);
@@ -78,11 +83,13 @@ public class Data {
 	 */
 	private static void writeObject(Kryo kryo, Output output, Object data) {
 		try {
+			System.out.println("Look this is writing to the file now....");
 			kryo.writeObject(output, data);
-		} catch (ConcurrentModificationException e) {
+		} catch (ConcurrentModificationException |KryoException e) {
 			try {
+				e.printStackTrace();
 				TimeUnit.SECONDS.sleep(1);
-				writeObject(kryo, output, data);
+//				writeObject(kryo, output, data);
 			} catch (InterruptedException e1) {
 				Dialogs.create().title("ERROR").masthead("Dangerous coding has produced an error").message(e.getMessage()).showWarning();
 				e1.printStackTrace();
