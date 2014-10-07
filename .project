@@ -3,6 +3,7 @@
 	<name>JefXif</name>
 	<comment></comment>
 	<projects>
+		<project>PathfinderData</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

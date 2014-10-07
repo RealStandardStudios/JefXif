@@ -7,8 +7,6 @@ import java.util.ConcurrentModificationException;
 import java.util.concurrent.TimeUnit;
 
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import jefXif.io.serializers.ObjectPropertyInteger;
 import jefXif.io.serializers.ObservableListWrapperSerializer;
 import jefXif.io.serializers.StringPropertySerializer;
 
@@ -41,7 +39,6 @@ public class Data {
 		boolean result = true;
 		
 		kryo.register(SimpleStringProperty.class, new StringPropertySerializer());
-		kryo.register(SimpleObjectProperty.class, new ObjectPropertyInteger());
 		kryo.register(ObservableListWrapper.class, new ObservableListWrapperSerializer());
 
 		output = new Output(new FileOutputStream(filePath));
