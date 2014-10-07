@@ -3,8 +3,6 @@ package jefXif.io;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ConcurrentModificationException;
-import java.util.concurrent.TimeUnit;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -12,10 +10,7 @@ import jefXif.io.serializers.ObjectPropertySerializer;
 import jefXif.io.serializers.ObservableListWrapperSerializer;
 import jefXif.io.serializers.StringPropertySerializer;
 
-import org.controlsfx.dialog.Dialogs;
-
 import com.esotericsoftware.kryo.Kryo;
-import com.esotericsoftware.kryo.KryoException;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
 import com.sun.javafx.collections.ObservableListWrapper;
@@ -46,7 +41,8 @@ public class Data {
 		kryo.register(new SimpleObjectProperty<Object>().getClass(), new ObjectPropertySerializer());
 
 		output = new Output(new FileOutputStream(filePath));
-		writeObject(kryo, output, data);
+		kryo.writeObject(output, data);
+		//writeObject(kryo, output, data);
 		if (output != null)
 			output.close();
 		return result;
@@ -74,26 +70,25 @@ public class Data {
 		return result;
 	}
 	
-	/**
-	 * A method to slow down the writing process
-	 * 
-	 * @param kryo
-	 * @param output
-	 * @param data
-	 */
-	private static void writeObject(Kryo kryo, Output output, Object data) {
-		try {
-			System.out.println("Look this is writing to the file now....");
-			kryo.writeObject(output, data);
-		} catch (ConcurrentModificationException |KryoException e) {
-			try {
-				e.printStackTrace();
-				TimeUnit.SECONDS.sleep(1);
+//	/**
+//	 * A method to slow down the writing process
+//	 * 
+//	 * @param kryo
+//	 * @param output
+//	 * @param data
+//	 */
+//	private static void writeObject(Kryo kryo, Output output, Object data) {
+//		try {
+//			kryo.writeObject(output, data);
+//		} catch (ConcurrentModificationException |KryoException e) {
+//			try {
+//				e.printStackTrace();
+//				TimeUnit.SECONDS.sleep(1);
 //				writeObject(kryo, output, data);
-			} catch (InterruptedException e1) {
-				Dialogs.create().title("ERROR").masthead("Dangerous coding has produced an error").message(e.getMessage()).showWarning();
-				e1.printStackTrace();
-			}
-		}
-	}
+//			} catch (InterruptedException e1) {
+//				Dialogs.create().title("ERROR").masthead("Dangerous coding has produced an error").message(e.getMessage()).showWarning();
+//				e1.printStackTrace();
+//			}
+//		}
+//	}
 }
