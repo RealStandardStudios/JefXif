@@ -4,9 +4,9 @@ import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
-import jefXif.Gui;
 import jefXif.Strings;
-import jefXif.WindowController;
+import jefXif.view.Gui;
+import jefXif.view.WindowController;
 
 /**
  * Provides the ability to perform partial loads
@@ -23,6 +23,7 @@ public interface PartialLoader {
 		WindowController controller = loader.getController();
 		controller.setInterface(ui);
 		controller.setNode(partial);
+		controller.setRoot(ui.getRootLayout());
 		return controller;
 	}
 }

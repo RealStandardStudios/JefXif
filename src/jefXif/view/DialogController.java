@@ -1,7 +1,7 @@
 /**
  * 
  */
-package jefXif;
+package jefXif.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

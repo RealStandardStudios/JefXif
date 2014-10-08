@@ -1,9 +1,10 @@
-package jefXif;
+package jefXif.view.partial;
 
 import java.io.File;
 import java.io.IOException;
 
 import jefXif.interfaces.DataFileReader;
+import jefXif.view.WindowController;
 
 /**
  * The base MainPartialController class

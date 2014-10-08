@@ -1,4 +1,4 @@
-package jefXif;
+package jefXif.view;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +17,7 @@ public abstract class Gui implements PartialLoader{
 	public static String FileLoc = "../view/partials/";
 	public static String DataFileLoc = "\\PathfinderData\\Data\\";
 	private Stage primaryStage;
-	private BorderPane rootLayout;
+	private RootLayoutController rootLayoutController;
 	
 	/**
 	 * Constructor for GUI
@@ -73,8 +73,8 @@ public abstract class Gui implements PartialLoader{
 	 * 
 	 * @returns rootLayout
 	 */
-	public BorderPane getRootLayout() {
-		return rootLayout;
+	public RootLayoutController getRootLayout() {
+		return rootLayoutController;
 	}
 
 	/**
@@ -82,8 +82,8 @@ public abstract class Gui implements PartialLoader{
 	 * 
 	 * @param rootLayout
 	 */
-	public void setRootLayout(BorderPane rootLayout) {
-		this.rootLayout = rootLayout;
+	public void setRootLayout(RootLayoutController rootLayout) {
+		this.rootLayoutController = rootLayout;
 	}
 	
 	/**

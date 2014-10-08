@@ -1,4 +1,4 @@
-package jefXif;
+package jefXif.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -11,6 +11,9 @@ import javafx.scene.Node;
 public abstract class WindowController {
 	private Gui ui;
 	private Node node;
+	private WindowController parentWindow;
+	
+	private RootLayoutController root;
 
 	/**
 	 * Initializes the controller class. This method is automatically called
@@ -50,4 +53,27 @@ public abstract class WindowController {
 	public void setNode(Node node) {
 		this.node = node;
 	}
+
+	public WindowController getParentWindow() {
+		return parentWindow;
+	}
+
+	public void setParentWindow(WindowController parentWindow) {
+		this.parentWindow = parentWindow;
+	}
+
+	/**
+	 * @return the root
+	 */
+	public RootLayoutController getRoot() {
+		return root;
+	}
+
+	/**
+	 * @param root the root to set
+	 */
+	public void setRoot(RootLayoutController root) {
+		this.root = root;
+	}
+	
 }
