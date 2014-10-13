@@ -7,4 +7,5 @@ package jefXif;
  */
 public final class Strings {
 	public static String FileLoc = "../view/partials/";
+	public static String ProgramTitle = "Program Title - Should Change";
 }
