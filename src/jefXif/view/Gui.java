@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.prefs.Preferences;
 
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import jefXif.interfaces.PartialLoader;
 
