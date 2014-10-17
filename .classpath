@@ -8,6 +8,5 @@
 	<classpathentry kind="lib" path="lib/reflectasm-1.09-shaded.jar"/>
 	<classpathentry kind="lib" path="lib/kryo-2.24.0.jar"/>
 	<classpathentry kind="lib" path="lib/controlsfx.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/PathfinderData"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
