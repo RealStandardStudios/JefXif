@@ -1,22 +1,22 @@
 package jefXif.view;
 
-import javafx.stage.Stage;
+import javafx.scene.layout.AnchorPane;
 
 public abstract class HoverDialog extends WindowController {
-	Stage dialogStage;
+	AnchorPane pane;
 
 	/**
 	 * @return the dialogStage
 	 */
-	public Stage getDialogStage() {
-		return dialogStage;
+	public AnchorPane getDialogStage() {
+		return pane;
 	}
 
 	/**
 	 * @param dialogStage the dialogStage to set
 	 */
-	public void setDialogStage(Stage dialogStage) {
-		this.dialogStage = dialogStage;
+	public void setDialogStage(AnchorPane dialogStage) {
+		this.pane = dialogStage;
 	}
 	
 	
